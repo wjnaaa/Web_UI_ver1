@@ -1,0 +1,40 @@
+<!-- templates/of.html -->
+{% extends "base.html" %}
+
+{% block title %}🥭 ERP : Office Service System{% endblock %}
+
+{% block content %}
+
+<div class="module-grid">
+  <a href="/of/petty-cash" class="module-box">
+    <i class="fas fa-wallet"></i>
+    <span>ใบเบิกเงินสดย่อย<br>Petty Cash</span>
+  </a>
+  
+  <a href="/of/purchase-requisition" class="module-box">
+    <i class="fas fa-cart-plus"></i>
+    <span>ใบขอซื้อ<br>Purchase Requisition</span>
+  </a>
+  
+  <a href="/of/pr-status" class="module-box">
+    <i class="fas fa-box"></i>
+    <span>สถานะใบขอซื้อ<br>PR Status</span>
+  </a>
+  
+  <a href="/of/work-order" class="module-box">
+    <i class="fas fa-file-signature"></i>
+    <span>หนังสือสั่งจ้าง<br>Work Order</span>
+  </a>
+  
+  <a href="/of/billing-note-subc" class="module-box">
+    <i class="fas fa-file-invoice-dollar"></i>
+    <span>รับวางบิลผู้รับเหมา<br>Billing Note Subc.</span>
+  </a>
+  
+  <a href="/of/progress-submit" class="module-box">
+    <i class="fas fa-clipboard-check"></i>
+    <span>เอกสารส่งมอบโครงการ<br>Progress Submit</span>
+  </a>
+</div>
+
+{% endblock %}

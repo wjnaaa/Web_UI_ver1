@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+{% block title %}🥭 OF : Petty Cash Reimbursement{% endblock %}
+
+{% block content %}
+<h2 class="page-title">เอกสารใบเบิกเงินสดย่อยและใบเบิกจ่ายที่ไม่มี PO/WO</h2>
+
+<!-- ✅ Tab Menu หลัก -->
+<div class="tab-header">
+  <button class="tab-button active" onclick="showTab('doc')">📁 ข้อมูลเอกสาร</button>
+  <button class="tab-button" onclick="showTab('cost')">🧾 Cost Center</button>
+  <button class="tab-button" onclick="showTab('approve')">👤 ข้อมูลการอนุมัติ</button>
+  <button class="tab-button" onclick="showTab('file')">📎 แนบไฟล์เอกสาร</button>
+  <button class="tab-button" onclick="showTab('image')">🖼 แนบไฟล์รูปภาพ</button>
+</div>
+
+<!-- ✅ Tab: ข้อมูลเอกสาร -->
+<div class="tab-content" id="tab-doc">
+
+  <!-- ✅ Sub-Tab Menu -->
+  <div class="sub-tab-header">
+    <button class="sub-tab-button active" onclick="showSubTab('doc-detail', this)">📄 รายละเอียดเอกสาร</button>
+    <button class="sub-tab-button" onclick="showSubTab('doc-expense', this)">💸 รายการใบเบิกเงินสดย่อย</button>
+    <button class="sub-tab-button" onclick="showSubTab('doc-receipt', this)">🧾 ใบแทนใบเสร็จรับเงิน</button>
+  </div>
+
+  <!-- ✅ SubTab 1: รายละเอียดเอกสาร -->
+  <div class="sub-tab-content" id="subtab-doc-detail">
+    <form class="form-wrapper">
+      <div class="form-row">
+        <label>เลขที่</label>
+        <input type="text" name="doc_no" />
+
+        <label>วันที่เอกสาร</label>
+        <input type="date" name="doc_date" value="2025-07-29" />
+
+        <label>ประเภทเอกสาร</label>
+        <select name="doc_type" id="doc_type_select" onchange="toggleReturnDate()">
+          <option value="petty_cash">Petty Cash</option>
+          <option value="advance">Advance</option>
+          <option value="clear_advance">Clear Advance</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-row" id="return_date_row" style="display: none;">
+        <label>Return Date</label>
+        <input type="date" name="return_date" />
+      </div>
+
+      <div class="form-row">
+        <label>ประเภทเจ้าหนี้</label>
+        <select name="creditor_type">
+          <option value="employee">Employee</option>
+          <option value="external">External</option>
+        </select>
+
+        <label class="required">จ่ายให้กับ</label>
+        <input type="text" name="pay_to" />
+      </div>
+
+      <div class="form-row">
+        <label>โครงการ</label>
+        <input type="text" name="project" />
+
+        <label>แผนก</label>
+        <input type="text" name="department" />
+      </div>
+
+      <div class="form-row">
+        <label>ระบบงาน</label>
+        <input type="text" name="system" />
+
+        <label>เลขที่เอกสารอ้างอิง</label>
+        <input type="text" name="ref_doc" />
+      </div>
+
+      <div class="form-row">
+        <label>สกุลเงิน</label>
+        <select><option>BAHT</option></select>
+
+        <label>อัตราแลกเปลี่ยน</label>
+        <input type="text" value="1.0000000000" />
+      </div>
+
+      <div class="form-row">
+        <label>หมายเหตุ</label>
+        <textarea maxlength="1000"></textarea>
+      </div>
+
+      <div class="form-row">
+        <label>หมายเหตุการยกเลิกอนุมัติ</label>
+        <input type="text" />
+      </div>
+
+      <div class="form-row switches">
+        <label><input type="checkbox" /> พิมพ์แบบฟอร์ม</label>
+        <label><input type="checkbox" /> Submit Approve</label>
+        <label><input type="checkbox" /> Sign Complete</label>
+        <label><input type="checkbox" /> Reject</label>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn-primary">💾 บันทึก</button>
+        <button type="button" class="btn-secondary">📄 Copy Document</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- ✅ SubTab 2: รายการใบเบิกเงินสดย่อย -->
+  <div class="sub-tab-content" id="subtab-doc-expense" style="display: none;">
+    <div class="form-wrapper">
+      <p>💸 รายการใบเบิกเงินสดย่อยจะอยู่ตรงนี้ เช่น ตารางที่มี Amount, VAT ฯลฯ</p>
+    </div>
+  </div>
+
+  <!-- ✅ SubTab 3: ใบแทนใบเสร็จรับเงิน -->
+  <div class="sub-tab-content" id="subtab-doc-receipt" style="display: none;">
+    <div class="form-wrapper">
+      <p>🧾 ใบแทนใบเสร็จรับเงินอยู่ตรงนี้ เช่น Vendor, Description, Amount ฯลฯ</p>
+    </div>
+  </div>
+</div>
+
+<!-- ✅ Tab: Cost Center -->
+<div class="tab-content" id="tab-cost" style="display: none;">
+  <p>🧾 ยังไม่ได้ใส่ข้อมูล Cost Center</p>
+</div>
+
+<!-- ✅ Tab: ข้อมูลการอนุมัติ -->
+<div class="tab-content" id="tab-approve" style="display: none;">
+  <p>👤 ยังไม่ได้ใส่ข้อมูลการอนุมัติ</p>
+</div>
+
+<!-- ✅ Tab: แนบไฟล์ -->
+<div class="tab-content" id="tab-file" style="display: none;">
+  <p>📎 แนบไฟล์เอกสารได้ที่นี่</p>
+</div>
+
+<!-- ✅ Tab: แนบรูป -->
+<div class="tab-content" id="tab-image" style="display: none;">
+  <p>🖼 แนบไฟล์รูปภาพได้ที่นี่</p>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function showTab(tabId) {
+  const tabs = document.querySelectorAll(".tab-content");
+  const buttons = document.querySelectorAll(".tab-button");
+
+  tabs.forEach(tab => tab.style.display = "none");
+  buttons.forEach(btn => btn.classList.remove("active"));
+
+  document.getElementById(`tab-${tabId}`).style.display = "block";
+  event.currentTarget.classList.add("active");
+}
+
+function showSubTab(tabId, btn) {
+  const subTabs = document.querySelectorAll(".sub-tab-content");
+  const subButtons = document.querySelectorAll(".sub-tab-button");
+
+  subTabs.forEach(tab => tab.style.display = "none");
+  subButtons.forEach(b => b.classList.remove("active"));
+
+  document.getElementById(`subtab-${tabId}`).style.display = "block";
+  btn.classList.add("active");
+}
+
+function toggleReturnDate() {
+  const docType = document.getElementById("doc_type_select").value;
+  const returnDateRow = document.getElementById("return_date_row");
+
+  if (docType === "advance" || docType === "clear_advance") {
+    returnDateRow.style.display = "flex";
+  } else {
+    returnDateRow.style.display = "none";
+  }
+}
+
+window.addEventListener("DOMContentLoaded", toggleReturnDate);
+</script>
+{% endblock %}

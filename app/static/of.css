@@ -1,0 +1,230 @@
+.content {
+  margin-left: 80px;  /* ✅ ขยับ content หลบ sidebar 60px */
+  padding: 2rem;
+}
+
+.form-wrapper {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 1100px;
+  margin: 1rem auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.form-title {
+  color: #003366;
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+
+.form-row label {
+  min-width: 150px;
+  font-weight: bold;
+}
+
+.form-row input,
+.form-row select,
+.form-row textarea {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.form-row textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+.search-box {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.search-box input {
+  flex: 1;
+}
+
+.search-box button {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.toggle-row {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.toggle-row label {
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.form-actions {
+  margin-top: 2rem;
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.btn-primary {
+  background-color: #003366;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-secondary {
+  background-color: #ccc;
+  color: #333;
+  padding: 8px 20px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.tab-header {
+  display: flex;
+  gap: 10px;
+  border-bottom: 2px solid #ccc;
+  margin-bottom: 1.5rem;
+  padding-bottom: 4px;
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  font-weight: bold;
+  padding: 10px 16px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  font-size: 15px;
+}
+
+.tab-button.active {
+  color: #003366;
+  border-bottom: 2px solid #003366;
+}
+
+.tab-content {
+  margin-top: 20px;
+}
+
+/* of_purchase_requisition */
+
+.form-wrapper {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  margin: 1rem auto;
+  max-width: 1100px;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+
+.form-row label {
+  min-width: 150px;
+  font-weight: bold;
+}
+
+.form-row input,
+.form-row select {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-box button {
+  background-color: #dc3545;
+  color: white;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.toggle-switch-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  align-items: center;
+}
+
+/* Sub-Tab Header ที่ดูเรียบร้อยแบบระบบเดิม */
+.sub-tab-header {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 0.25rem;
+}
+
+.sub-tab-button {
+  background-color: #f7f7f7;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  padding: 8px 16px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.sub-tab-button.active {
+  background-color: white;
+  border-color: #ccc;
+  border-bottom: 2px solid white;
+  color: #003366;
+}
+
+.sub-tab-content {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}

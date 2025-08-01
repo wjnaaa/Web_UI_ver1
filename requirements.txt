@@ -1,0 +1,18 @@
+# ✅ Core Web Framework
+flask
+
+# ✅ Form Handling
+flask-wtf
+wtforms
+
+# ✅ Database Connection
+pymysql
+
+# ✅ Optional: ทำให้ template auto reload ตอน dev
+python-dotenv  # ถ้าคุณใช้ .env สำหรับ config (สามารถลบออกถ้าไม่ใช้)
+
+# ✅ สำหรับ type hints (optional แต่ช่วยให้ editor ไม่ error)
+typing-extensions
+
+# ✅ ถ้าใช้ features เพิ่มเติมในอนาคต (เช่น timezones หรือ utils)
+pytz

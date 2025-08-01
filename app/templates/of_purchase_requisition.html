@@ -1,0 +1,207 @@
+{% extends "base.html" %}
+{% block title %}🥭 OF : Purchase Requisition{% endblock %}
+
+{% block content %}
+<h2 class="page-title">เอกสารใบขอซื้อ</h2>
+
+<!-- ✅ Tab Menu -->
+<div class="tab-header">
+  <button class="tab-button active" onclick="showTab('doc')">📁 ข้อมูลเอกสาร</button>
+  <button class="tab-button" onclick="showTab('cost')">🧾 Cost Center</button>
+  <button class="tab-button" onclick="showTab('approve')">👤 ข้อมูลการอนุมัติ</button>
+  <button class="tab-button" onclick="showTab('file')">📎 แนบไฟล์เอกสาร</button>
+  <button class="tab-button" onclick="showTab('image')">🖼 แนบไฟล์รูปภาพ</button>
+</div>
+
+<!-- ✅ Tab: ข้อมูลเอกสาร -->
+<div class="tab-content" id="tab-doc">
+  <form class="form-wrapper">
+
+    <div class="form-row">
+      <label>ประเภทเอกสาร</label>
+      <select>
+        <option>P/O and W/O</option>
+        <option>Other</option>
+      </select>
+
+      <label>วันที่เอกสาร</label>
+      <input type="date" value="2025-07-30" />
+
+      <label>เลขที่เอกสาร</label>
+      <input type="text" />
+    </div>
+
+    <div class="form-row">
+      <label>ผู้ขอซื้อ</label>
+      <div class="search-box">
+        <input type="text" />
+        <button type="button">🔍</button>
+        <button type="button">❌</button>
+      </div>
+
+      <label>ระดับความสำคัญ</label>
+      <select>
+        <option>Normal / ปกติ</option>
+        <option>High</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <label>เลขที่โครงการ</label>
+      <div class="search-box">
+        <input type="text" />
+        <button type="button">🔍</button>
+        <button type="button">❌</button>
+      </div>
+
+      <label>ระบบงาน</label>
+      <select>
+        <option>เลือกอย่างใดอย่างหนึ่ง</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <label>แผนก</label>
+      <div class="search-box">
+        <input type="text" />
+        <button type="button">🔍</button>
+        <button type="button">❌</button>
+      </div>
+
+      <label>สกุลเงิน</label>
+      <select>
+        <option>BAHT</option>
+      </select>
+
+      <label>อัตราแลกเปลี่ยน</label>
+      <input type="text" value="1.0000000000" />
+    </div>
+
+    <div class="form-row">
+      <label>ผู้ขาย</label>
+      <div class="search-box">
+        <input type="text" />
+        <button type="button">🔍</button>
+        <button type="button">❌</button>
+      </div>
+
+      <label>Delivery Condition</label>
+      <select>
+        <option>Transshipment</option>
+      </select>
+
+      <label>วันที่ส่งของ</label>
+      <input type="text" placeholder="__/__/____" />
+    </div>
+
+    <div class="form-row">
+      <label>ประเภทการสั่งซื้อ</label>
+      <select>
+        <option>Cost</option>
+        <option>Asset</option>
+      </select>
+
+      <label>ประเภทภาษีมูลค่าเพิ่ม</label>
+      <select>
+        <option>Excluded VAT</option>
+        <option>Included VAT</option>
+      </select>
+
+      <label>% ภาษีมูลค่าเพิ่ม</label>
+      <input type="text" value="7.00" />
+    </div>
+
+    <div class="form-row">
+      <label>รายละเอียดเพิ่มเติม</label>
+      <textarea maxlength="1000" rows="3" placeholder="ใส่รายละเอียดเพิ่มเติม..."></textarea>
+    </div>
+
+    <div class="form-row">
+      <label>ผู้รับเหมา</label>
+      <div class="search-box">
+        <input type="text" />
+        <button type="button">🔍</button>
+        <button type="button">❌</button>
+      </div>
+
+      <label>เลขที่เอกสารสัญญาจ้าง (WO)</label>
+      <div class="search-box">
+        <input type="text" />
+        <button type="button">🔍</button>
+        <button type="button">❌</button>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <label>เลขที่เอกสารอ้างอิง OTH</label>
+      <input type="text" />
+
+      <label>เลขที่เอกสารอ้างอิง AP</label>
+      <input type="text" />
+    </div>
+
+    <div class="form-row">
+      <label>ผู้ติดต่อ</label>
+      <input type="text" maxlength="100" />
+
+      <label>เบอร์โทรผู้ติดต่อ</label>
+      <input type="text" maxlength="100" />
+    </div>
+
+    <div class="form-row">
+      <label>หมายเหตุการยกเลิกอนุมัติ</label>
+      <input type="text" />
+    </div>
+
+    <div class="form-row toggle-switch-group">
+      <label><input type="checkbox" /> Submit Approve</label>
+      <label><input type="checkbox" /> Sign Complete</label>
+      <label><input type="checkbox" /> Reject</label>
+      <label><input type="checkbox" /> Control Budget</label>
+      <label><input type="checkbox" /> Control BOQ</label>
+      <label><input type="checkbox" /> Ref. BOQ</label>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn-primary">💾 บันทึก</button>
+      <button type="button" class="btn-secondary">📄 Copy Document</button>
+    </div>
+
+  </form>
+</div>
+
+<!-- ✅ Tab: Cost Center -->
+<div class="tab-content" id="tab-cost" style="display: none;">
+  <p>🧾 ยังไม่ได้ใส่ Cost Center</p>
+</div>
+
+<!-- ✅ Tab: ข้อมูลการอนุมัติ -->
+<div class="tab-content" id="tab-approve" style="display: none;">
+  <p>👤 ข้อมูลการอนุมัติ</p>
+</div>
+
+<!-- ✅ Tab: แนบไฟล์เอกสาร -->
+<div class="tab-content" id="tab-file" style="display: none;">
+  <p>📎 แนบไฟล์เอกสาร</p>
+</div>
+
+<!-- ✅ Tab: แนบไฟล์รูปภาพ -->
+<div class="tab-content" id="tab-image" style="display: none;">
+  <p>🖼 แนบไฟล์รูปภาพ</p>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function showTab(tabId) {
+  const tabs = document.querySelectorAll(".tab-content");
+  const buttons = document.querySelectorAll(".tab-button");
+
+  tabs.forEach(tab => tab.style.display = "none");
+  buttons.forEach(btn => btn.classList.remove("active"));
+
+  document.getElementById(`tab-${tabId}`).style.display = "block";
+  event.currentTarget.classList.add("active");
+}
+</script>
+{% endblock %}

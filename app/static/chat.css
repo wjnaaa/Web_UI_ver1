@@ -1,0 +1,143 @@
+/* static/chat.css */
+
+/*ส่วนหัวกล่องแชท*/
+.chat-header {
+  background-color: #0a3d62;           /* ✅ สีน้ำเงินกรมท่า */
+  color: white;                        /* สีตัวหนังสือขาว */
+  padding: 8px 16px;                   /* เว้นขอบด้านใน */
+  display: flex;                       /* เรียงเนื้อหาภายในแนวนอน */
+  align-items: center;                /* จัดแนวแกน Y */
+  justify-content: space-between;     /* เว้นซ้าย/ขวาให้สุด */
+  height: auto;                        /* ให้สูงตามเนื้อหา */
+  box-sizing: border-box;              /* รวม padding เข้า width/height */
+  border-top-left-radius: 12px;        /* มุมบนโค้ง */
+  border-top-right-radius: 12px;
+  font-size: 16px;
+}
+
+/*กลุ่มชื่อแชท + avatar*/
+.chat-header .chat-title {
+  display: flex;               /* เรียงแนวนอน */
+  align-items: center;
+  gap: 16px;                   /* ระยะห่างระหว่างไอเท็ม */
+}
+
+/*ปุ่มปิดแชท*/
+.chat-header .resize-button {
+  background: none;         /* ไม่มีพื้นหลัง */
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+/* กล่องแชทหลัก */
+#chat-box {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  width: 360px;
+  height: 540px;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  overflow: hidden;
+  z-index: 9999;
+  box-sizing: border-box;
+}
+
+/* ข้อความแชท */
+#chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+  background: #e9eff5;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+/*ข้อความแต่ละบับ*/
+.message {
+  max-width: 70%;
+  padding: 10px 14px;
+  border-radius: 16px;
+  font-size: 14px;
+  line-height: 1.4;
+  display: inline-block;
+}
+.message.user {
+  align-self: flex-end;
+  background-color: #1e5f99;
+  color: white;
+  border-bottom-right-radius: 2px;
+}
+.message.bot {
+  align-self: flex-start;
+  background-color: #ffffff;
+  color: #222;
+  border-bottom-left-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.chat-tools {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+}
+
+/*ฟอร์มแชท (footer input)*/
+#chat-form {
+  display: flex;               /* ✅ ใช้ flex row */
+  align-items: center;         /* จัดกลางแนว Y */
+  gap: 4px;                    /* ระยะห่างระหว่าง input/button */
+  padding: 8px;
+  background-color: white;
+  border-top: 1px solid #ccc;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+/*ปุ่มทุกชนิด + ปุ่ม file*/
+#chat-form button,
+#chat-form input[type="file"] {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #003366;
+}
+ 
+/*กล่อง input ข้อความ*/
+#chat-form input[type="text"] {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 14px;            
+}
+
+/*ปุ่มส่งข้อความ*/
+#chat-form button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #003366;
+}
+#chat-form button.send {
+  background-color: none;
+  color: #003366;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px; /* ✅ เพิ่มบรรทัดนี้ */
+}

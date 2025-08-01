@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}ERP Web{% endblock %}</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='chat.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='approve.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='of.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+</head>
+<body>
+  <!-- ✅ Header -->
+  <nav class="top-nav">
+    <div class="top-nav-left">
+      <div class="logo">🥭 ERP : Enterprise Resource Planning</div>
+    </div>
+    <div class="top-nav-right">
+      <div class="menu-items">
+        <a href="/fin" class="disabled">FIN</a>
+        <a href="/pm" class="disabled">PM</a>
+        <a href="/bd" class="disabled">BD</a>
+        <a href="/of" >OF</a>
+        <a href="/po" class="disabled">PO</a>
+        <a href="/ap" class="disabled">AP</a>
+        <a href="/ic" class="disabled">IC</a>
+        <a href="/ar" class="disabled">AR</a>
+        <a href="/gl" class="disabled">GL</a>
+        <a href="/fa" class="disabled">FA</a>
+        <a href="/re" class="disabled">RE</a>
+        <div class="dropdown">
+          <button class="dropbtn">▾</button>
+          <div class="dropdown-content">
+            <a href="/mrp" class="disabled">MRP</a>
+            <a href="/rt" class="disabled">RT</a>
+            <a href="/ma" class="disabled">MA</a>
+            <a href="/eval" class="disabled">EVAL</a>
+            <a href="/qcm" class="disabled">QCM</a>
+            <a href="/tkb" class="disabled">TKB</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="top-tools">
+        <a href="/approve" class="tool-button">✅ อนุมัติเอกสาร</a>
+        <div class="dropdown">
+          <button class="dropbtn">🛠️ ตั้งค่าข้อมูลหลัก ▾</button>
+          <div class="dropdown-content">
+            <a href="#">XXX</a>
+            <a href="#">XXXXX</a>
+            <a href="#">XXXXXXXX</a>
+          </div>
+        </div>
+        <a href="/notifications" class="notification">🔔<span class="badge">0</span></a>
+      </div>
+      <div class="profile">👤 MANGOAIO2</div>
+    </div>
+  </nav>
+
+  <!-- ✅ Sidebar + Main Content -->
+  <div class="layout-wrapper">
+    <aside class="sidebar">
+      <a href="/"><i class="fas fa-home"></i></a>
+      <a href="#"><i class="fas fa-camera"></i></a>
+      <a href="#"><i class="fas fa-paper-plane"></i></a>
+    </aside>
+
+    <!-- ✅ เนื้อหา Content -->
+    <main class="main-content">
+      {% block content %}{% endblock %}
+    </main>
+  </div>
+
+  <!-- ✅ Floating Chatbot Button -->
+  <div id="chatbot-button">
+    <i class="fas fa-comment-alt"></i>
+  </div>
+
+  <!-- ✅ กล่องแชทที่รวมจาก chat.html -->
+  <div class="chat-wrapper display-none" id="chat-box">
+
+    <!-- ✅ Header -->
+    <div class="chat-header">
+      <div class="bot-avatar"><i class="fas fa-robot"></i></div>
+      <div class="bot-name">MANGO STAFF</div>
+      <button class="resize-button" title="กลับ">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <!-- ✅ Chat body -->
+    <div class="chat-body" id="chat-messages">
+      <div class="message bot">
+        สวัสดีครับ มีอะไรให้แมงโก้ช่วยสามารถบอกได้เลยนะครับ ผมพร้อมช่วยเหลือทุกๆท่านเลยครับ 
+        ദ്ദി(˵ •̀ ᴗ - ˵ ) ✧
+      </div>
+      {% if bot_response %}
+        <div class="message bot">{{ bot_response|safe }}</div>
+      {% endif %}
+    </div>
+
+    <!-- ✅ Chat form -->
+    <form id="chat-form" class="chat-footer" onsubmit="sendMessage(event)">
+      <div class="chat-tools">
+        <button type="button" class="tool-btn"><i class="fas fa-plus"></i></button>
+        <button type="button" class="tool-btn"><i class="fas fa-camera"></i></button>
+      </div>
+      <input type="text" id="chat-input" name="user_input" placeholder="พิมพ์ข้อความ..." autocomplete="off">
+      <button type="button" class="tool-btn"><i class="fas fa-microphone"></i></button>
+      <button type="submit" class="send-btn"><i class="fas fa-paper-plane"></i></button>
+    </form>
+  </div>
+
+  <!-- ✅ JS -->
+  <script src="{{ url_for('static', filename='js/alljson.js') }}"></script>
+</body>
+</html>

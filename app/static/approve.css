@@ -1,0 +1,237 @@
+/* ส่วนหัวหน้า */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1px;
+  margin-bottom: 20px;
+}
+
+.page-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #222;
+  margin: 0;
+}
+
+.save-button {
+  background-color: #00cc66;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.save-button i {
+  margin-right: 4px;
+}
+
+/* tab */
+.tab-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.tab {
+  padding: 8px 16px;
+  background-color: #f2f2f2;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.tab.active {
+  background-color: #003366;
+  color: white;
+}
+
+/* filter dropdown และช่องค้นหา */
+.filter-container {
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  padding-left: 10px;
+}
+
+.filter-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-select-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.custom-select-wrapper select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 8px 32px 8px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: white;
+  cursor: pointer;
+  min-width: 150px;
+  font-weight: 500;
+}
+
+.custom-select-wrapper::after {
+  content: "▼";
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 12px;
+  color: #333;
+}
+
+.search-input-group {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  overflow: hidden;
+  height: 36px;
+}
+
+.search-input-group input {
+  border: none;
+  padding: 8px 12px;
+  outline: none;
+  font-size: 14px;
+  height: 100%;
+}
+
+.search-btn {
+  background-color: #002f5f;
+  color: white;
+  border: none;
+  padding: 0 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* ตาราง */
+.table-scroll {
+  max-height: 350px;
+  overflow-x: auto;
+  overflow-y: auto;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.approval-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+.approval-table th,
+.approval-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.approval-table th {
+  background-color: #003366;
+  color: white;
+}
+
+.split-table-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  overflow: hidden;
+  border-top: 1px solid #ccc;
+}
+
+.split-table-scrolls {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.split-table-left,
+.split-table-right {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  background-color: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.split-table-left {
+  min-width: 480px;
+  max-width: 600px;
+  flex-shrink: 0;
+}
+
+.split-table-right {
+  flex-grow: 1;
+}
+
+.split-resizer {
+  width: 6px;
+  background-color: #ccc;
+  cursor: col-resize;
+  height: 100%;
+}
+
+/* ตาราง */
+.split-table-left table,
+.split-table-right table {
+  border-collapse: collapse;
+  min-width: max-content;
+  table-layout: auto;
+  width: auto;
+  height: 100%;
+}
+
+.split-table-left th,
+.split-table-left td,
+.split-table-right th,
+.split-table-right td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.split-table-left th,
+.split-table-right th {
+  background-color: #003366;
+  color: white;
+}
+
+/* บังคับความกว้างเฉพาะช่องที่ยาว */
+.split-table-left th:nth-child(2),
+.split-table-left th:nth-child(3),
+.split-table-right th:nth-child(1),
+.split-table-right th:nth-child(6),
+.split-table-right th:nth-child(7),
+.split-table-right th:nth-child(8),
+.split-table-right th:nth-child(11),
+.split-table-right th:nth-child(12),
+.split-table-right th:nth-child(13) {
+  min-width: 130px;
+}

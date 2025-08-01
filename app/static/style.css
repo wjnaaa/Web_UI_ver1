@@ -1,0 +1,293 @@
+/* ---------- RESET ---------- */
+html {
+  height: 100%;           /*กำหนดความสูงของ <html>*/
+}
+
+body {
+  background-color: #eee;       /* สีพื้นหลังของเว็บเพจ */
+  margin: 0;                    /* ลบ margin เริ่มต้นของ body */
+  font-family: Arial, sans-serif; /* กำหนดฟอนต์ */
+  height: 100%;                 /* ความสูง 100% ของ viewport */
+  padding: 0;                   /* ลบ padding เริ่มต้น */
+}
+
+/* ---------- HEADER FIXED ---------- */
+.top-nav {
+  position: fixed;         /* ติดอยู่ด้านบนตลอด */
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;            /* ความสูงของแถบบน */
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  z-index: 1001;           /* อยู่เหนือ sidebar */
+}
+
+.top-nav-left {
+  background-color: #003366; /* สีน้ำเงินกรมท่า */
+  color: white;
+  padding: 0 0.75rem;        /* ซ้ายขวา = 12px */
+  display: flex;
+  align-items: center;       /* จัดกลางแนวตั้ง */
+  min-width: 280px;          /* ไม่เล็กเกิน */
+}
+
+.top-nav-right {
+  background-color: white;
+  flex-grow: 1;                /* กินพื้นที่ที่เหลือ */
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* ซ้าย-ขวาให้เต็ม */
+  padding: 0 1rem;
+}
+
+.menu-items {
+  display: flex;
+  align-items: center;
+  gap: 32px;               /* ระยะห่างระหว่างเมนู */
+}
+
+.menu-items .disabled {
+  color: #aaa;             /* สีจาง */
+  cursor: default;         /* ลูกศรธรรมดา */
+}
+
+.dropdown {
+  position: relative;       /* ใช้จัด dropdown-content */
+  display: inline-block;
+}
+
+.dropbtn {
+  background: transparent;  /* ปุ่มไม่มีพื้นหลัง (ใช้พื้นหลังจาก container เดิม) */
+  border: none;             /* ไม่มีเส้นขอบ */
+  font-size: 16px;          /* ขนาดตัวอักษร */
+  cursor: pointer;          /* เป็น cursor มือชี้ */
+  color: #555;              /* สีข้อความเทาเข้ม */
+}
+
+.dropdown-content {
+  display: none;                /* ซ่อน dropdown list ไว้ก่อน */
+  position: absolute;          /* วางซ้อนบนตำแหน่งแม่ */
+  top: 2rem;                   /* ห่างจากบน 2rem (≈32px) */
+  right: 0;                    /* ชิดขอบขวา */
+  background-color: white;
+  min-width: 120px;            /* ความกว้างขั้นต่ำ */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* เงาบาง */
+  border-radius: 6px;          /* มุมโค้ง */
+  z-index: 1000;               /* ซ้อนอยู่บนเมนูอื่น ๆ */
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 0.5rem 1rem;      /* padding บนล่าง 8px, ซ้ายขวา 16px */
+  display: block;            /* ให้ลิงก์กินพื้นที่เต็มแถว */
+  text-decoration: none;     /* ไม่มีขีดเส้นใต้ */
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1; /* เปลี่ยนพื้นหลังเวลา hover */
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;  /* เมื่อ hover บน dropdown แม่ ให้แสดง dropdown-content */
+}
+
+.menu-items span {
+  margin: 0 0.5rem; /* ระยะห่างด้านซ้ายขวา 8px */
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;;        /* ช่องว่างระหว่าง avatar และชื่อผู้ใช้ (≈8px) */
+}
+
+/* ---------- SIDEBAR FIXED ---------- */
+.sidebar {
+  position: fixed;
+  top: 70px;                      /* เริ่มถัดจาก top-nav */
+  left: 0;
+  height: calc(100vh - 70px);    /* สูงเท่าจอ ลบ 70px */
+  width: 60px;
+  background-color: #003366;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1.2rem;
+  gap: 1.2rem;
+  z-index: 1000;
+}
+
+.sidebar a {
+  color: white !important;
+  text-decoration: none;
+}
+
+.sidebar a i {
+  color: white !important;
+  fill: white !important;
+  font-size: 1.25rem;
+  display: block;
+  text-align: center;
+}
+
+/* ---------- CONTENT MAIN ---------- */
+.main-content {
+  margin-top: 70px;     /* เว้น top-nav */
+  margin-left: 200px;    /* เว้น sidebar */
+  padding: 2rem;
+}
+
+.content {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;      /* เลื่อนแนวตั้งได้ */
+}
+
+.layout-wrapper {
+  display: flex;         /* ใช้จัด layout แนวนอน */
+}
+
+/* ---------- MODULE BOX ---------- */
+.module-box {
+  width: 140px;                      /* ความกว้างของกล่องแต่ละโมดูล */
+  height: 140px;                     /* ความสูง */
+  background-color: #0a3d62;        /* สีน้ำเงินกรมท่า */
+  border-radius: 12px;              /* มุมโค้ง */
+  margin: 16px;                     /* ระยะรอบนอก */
+  padding: 10px;                    /* ระยะใน */
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  transition: transform 0.2s ease, background-color 0.2s ease; /* เพิ่ม animation smooth */
+  display: flex;
+  flex-direction: column;          /* จัดไอเท็มแนวตั้ง */
+  justify-content: center;         /* จัดกลางแนวตั้ง */
+  align-items: center;             /* จัดกลางแนวนอน */
+}
+
+.module-box:hover {
+  transform: scale(1.05);          /* ขยายขนาด 5% เมื่อ hover */
+  background-color: #1e5f99;       /* เปลี่ยนสีพื้นหลัง */
+}
+
+.module-box i {
+  font-size: 36px;                 /* ไอคอนขนาดใหญ่ */
+  margin-bottom: 10px;            /* ระยะห่างจากข้อความด้านล่าง */
+}
+
+.module-box span {
+  font-size: 16px;
+  text-align: center;
+}
+
+.module-grid {
+  display: grid;                     /* ใช้ grid layout */
+  grid-template-columns: repeat(6, 1fr); /* แบ่งเป็น 6 คอลัมน์เท่ากัน */
+  gap: 24px;                         /* ช่องว่างระหว่างกล่อง */
+  padding: 8px 32px 32px 32px;       /* padding บน 8px, ข้าง 32px */
+  justify-content: center;           /* จัดให้อยู่กลาง */
+  place-items: center;               /* ✅ จัดให้อยู่กลางแถว-หลัก */
+  max-width: 1000px;                 /* ไม่ให้เกิน 1000px */
+  margin: 0 auto;                    /* center ทั้ง block */
+}
+
+.module-box.disabled {
+  background: #d0d8e0;         /* สีพื้นหลังเทา */
+  color: #ffffff;              /* ตัวหนังสือขาว */
+  opacity: 0.6;                /* โปร่ง 60% */
+  pointer-events: none;       /* ไม่สามารถคลิกได้ */
+  cursor: not-allowed;        /* cursor รูปเครื่องหมายห้าม */
+}
+
+.module-box.disabled img {
+  filter: none;  /* ยกเลิกฟิลเตอร์ใดๆ เช่น grayscale */
+}
+
+/* ---------- CHATBOT ---------- */
+.display-none {
+  display: none !important;  /* class ซ่อน element */
+}
+
+#chatbot-button {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);  /* โปร่งใส */
+  backdrop-filter: blur(8px);             /* เบลอพื้นหลัง (เฉพาะ browser ที่รองรับ) */
+  color: white;
+  font-size: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* เงา */
+  z-index: 1000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#chatbot-popup {
+  position: fixed;
+  bottom: 90px;
+  right: 24px;
+  width: 22vw;                       /* กว้าง 22% ของ viewport */
+  height: 75vh;                      /* สูง 75% ของ viewport */
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  z-index: 999;
+  display: none;                     /* ซ่อนไว้ก่อน จะแสดงด้วย JS */
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#chat-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+#close-chatbot {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  color: #888;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.chat-header {
+  background-color: #0a3d62;
+  color: white;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  box-sizing: border-box;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  font-size: 16px;
+}
+
+.chat-header .chat-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.chat-header .resize-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 4px;
+}

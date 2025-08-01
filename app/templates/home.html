@@ -1,0 +1,32 @@
+<!-- templates/home.html -->
+{% extends "base.html" %}
+{% block title %}🥭 ERP : Enterprise Resource Planning {% endblock %}
+{% block content %}
+<div class="module-grid">
+  <!-- แถว 1 -->
+  <a href="/bd" class="module-box disabled"><i class="fas fa-gavel"></i><span>BD</span></a>
+  <a href="/of" class="module-box"><i class="fas fa-file-alt"></i><span>OF</span></a>
+  <a href="/po" class="module-box disabled"><i class="fas fa-shopping-cart"></i><span>PO</span></a>
+  <a href="/ap" class="module-box disabled"><i class="fas fa-file-invoice-dollar"></i><span>AP</span></a>
+  <a href="/fa" class="module-box disabled"><i class="fas fa-building"></i><span>FA</span></a>
+  <a href="/pm" class="module-box disabled"><i class="fas fa-chart-line"></i><span>PM</span></a>
+
+  <!-- แถว 2 -->
+  <a href="/ic" class="module-box disabled"><i class="fas fa-cube"></i><span>IC</span></a>
+  <a href="/ar" class="module-box disabled"><i class="fas fa-hand-holding-usd"></i><span>AR</span></a>
+  <a href="/gl" class="module-box disabled"><i class="fas fa-calculator"></i><span>GL</span></a>
+  <a href="/fin" class="module-box disabled"><i class="fas fa-university"></i><span>FIN</span></a>
+  <a href="/rt" class="module-box disabled"><i class="fas fa-calendar-alt"></i><span>RT</span></a>
+  <a href="/ma" class="module-box disabled"><i class="fas fa-tools"></i><span>MA</span></a>
+
+  <!-- แถว 3 -->
+  <a href="/mrp" class="module-box disabled"><i class="fas fa-cogs"></i><span>MRP</span></a>
+  <a href="/eval" class="module-box disabled"><i class="fas fa-star"></i><span>EVAL</span></a>
+  <a href="/mail" class="module-box disabled"><i class="fas fa-envelope"></i><span>MAIL</span></a>
+  <a href="/ppn" class="module-box disabled"><i class="fas fa-receipt"></i><span>PPN</span></a>
+  <a href="/qcm" class="module-box disabled"><i class="fas fa-user-check"></i><span>QCM</span></a>
+  <a href="tokbud" class="module-box disabled"><i class="fas fa-columns"></i><span>TOKBUD</span></a>
+</div>
+
+
+{% endblock %}

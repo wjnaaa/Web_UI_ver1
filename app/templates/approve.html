@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+
+{% block title %}🥭 ERP : Approve Document{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+  <h2 class="page-title">รายการเอกสารที่กำลังรอการอนุมัติ</h2>
+  <button class="save-button"><i class="fas fa-save"></i></button>
+</div>
+
+<div class="tab-bar">
+  <button class="tab active">✅ Pending Approval</button>
+  <button class="tab">🧾 Upper Approval Authorized</button>
+  <button class="tab">🚫 Cancel Authorized Signature</button>
+  <button class="tab">👤 Pending Document</button>
+</div>
+
+<div class="filter-container">
+  <div class="filter-block">
+    <label for="search-type">ค้นหาโดย</label>
+    <div class="custom-select-wrapper">
+      <select id="search-type">
+        <option>Document No.</option>
+        <option>Project No.</option>
+        <option>Ref. Code</option>
+        <option>Vendor/Customer</option>
+        <option>By</option>
+        <option>Remark</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="filter-block">
+    <label for="doc-type">Document Type</label>
+    <div class="custom-select-wrapper">
+      <select id="doc-type">
+        <option>All Type</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="filter-block search-group">
+    <label for="search-box" style="visibility: hidden;">ค้นหา</label>
+    <div class="search-input-group">
+      <input id="search-box" type="text" placeholder="ค้นหา...">
+      <button class="search-btn"><i class="fas fa-search"></i></button>
+    </div>
+  </div>
+</div>
+
+<!-- ✅ Split Table -->
+<div class="split-table-wrapper">
+  <div class="split-table-scrolls">
+    <div class="split-table-left">
+      <table>
+        <thead>
+          <tr>
+            <th>Approve</th>
+            <th>Document Type</th>
+            <th>Document No.</th>
+            <th>Form</th>
+            <th>For</th>
+            <th>Rev.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- เติมข้อมูลฝั่งซ้าย -->
+        </tbody>
+      </table>
+    </div>
+
+    <div class="split-resizer"></div>
+
+    <div class="split-table-right">
+      <table>
+        <thead>
+          <tr>
+            <th>Level of Importance</th>
+            <th>Paid Amount</th>
+            <th>Amount</th>
+            <th>VAT</th>
+            <th>VAT Amount</th>
+            <th>Total</th>
+            <th>Currency</th>
+            <th>Ref. Project</th>
+            <th>By</th>
+            <th>Approve Date</th>
+            <th>Document Date</th>
+            <th>Project/Department</th>
+            <th>Rev PO/WO No.</th>
+            <th>Vendor/Customer</th>
+            <th>Level</th>
+            <th>Remark</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- เติมข้อมูลฝั่งขวา -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  const resizer = document.querySelector('.split-resizer');
+  const left = document.querySelector('.split-table-left');
+
+  let x = 0;
+  let leftWidth = 0;
+
+  const mouseDownHandler = (e) => {
+    x = e.clientX;
+    leftWidth = left.getBoundingClientRect().width;
+    document.addEventListener('mousemove', mouseMoveHandler);
+    document.addEventListener('mouseup', mouseUpHandler);
+  };
+
+  const mouseMoveHandler = (e) => {
+    const dx = e.clientX - x;
+    left.style.width = `${leftWidth + dx}px`;
+  };
+
+  const mouseUpHandler = () => {
+    document.removeEventListener('mousemove', mouseMoveHandler);
+    document.removeEventListener('mouseup', mouseUpHandler);
+  };
+
+  resizer.addEventListener('mousedown', mouseDownHandler);
+
+  // ✅ ปรับความสูงซ้าย/ขวาให้เท่ากัน
+  window.addEventListener("load", () => {
+    const leftPane = document.querySelector(".split-table-left");
+    const rightPane = document.querySelector(".split-table-right");
+    const maxHeight = Math.max(leftPane.scrollHeight, rightPane.scrollHeight);
+    leftPane.style.height = rightPane.style.height = maxHeight + "px";
+  });
+</script>
+{% endblock %}
