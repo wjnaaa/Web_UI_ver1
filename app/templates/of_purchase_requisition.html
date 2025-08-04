@@ -189,19 +189,8 @@
 <div class="tab-content" id="tab-image" style="display: none;">
   <p>🖼 แนบไฟล์รูปภาพ</p>
 </div>
-{% endblock %}
 
-{% block scripts %}
-<script>
-function showTab(tabId) {
-  const tabs = document.querySelectorAll(".tab-content");
-  const buttons = document.querySelectorAll(".tab-button");
+  <!-- ✅ JS -->
+  <script src="{{ url_for('static', filename='js/alljson.js') }}"></script>
 
-  tabs.forEach(tab => tab.style.display = "none");
-  buttons.forEach(btn => btn.classList.remove("active"));
-
-  document.getElementById(`tab-${tabId}`).style.display = "block";
-  event.currentTarget.classList.add("active");
-}
-</script>
 {% endblock %}

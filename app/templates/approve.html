@@ -101,41 +101,7 @@
     </div>
   </div>
 </div>
-{% endblock %}
 
-{% block scripts %}
-<script>
-  const resizer = document.querySelector('.split-resizer');
-  const left = document.querySelector('.split-table-left');
-
-  let x = 0;
-  let leftWidth = 0;
-
-  const mouseDownHandler = (e) => {
-    x = e.clientX;
-    leftWidth = left.getBoundingClientRect().width;
-    document.addEventListener('mousemove', mouseMoveHandler);
-    document.addEventListener('mouseup', mouseUpHandler);
-  };
-
-  const mouseMoveHandler = (e) => {
-    const dx = e.clientX - x;
-    left.style.width = `${leftWidth + dx}px`;
-  };
-
-  const mouseUpHandler = () => {
-    document.removeEventListener('mousemove', mouseMoveHandler);
-    document.removeEventListener('mouseup', mouseUpHandler);
-  };
-
-  resizer.addEventListener('mousedown', mouseDownHandler);
-
-  // ✅ ปรับความสูงซ้าย/ขวาให้เท่ากัน
-  window.addEventListener("load", () => {
-    const leftPane = document.querySelector(".split-table-left");
-    const rightPane = document.querySelector(".split-table-right");
-    const maxHeight = Math.max(leftPane.scrollHeight, rightPane.scrollHeight);
-    leftPane.style.height = rightPane.style.height = maxHeight + "px";
-  });
-</script>
+  <!-- ✅ JS -->
+  <script src="{{ url_for('static', filename='js/alljson.js') }}"></script>
 {% endblock %}

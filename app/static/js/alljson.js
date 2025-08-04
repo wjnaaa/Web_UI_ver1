@@ -61,5 +61,72 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  toggleReturnDate();
+  toggleReturnDate(); // เรียกตอน DOM โหลดเสร็จ
+  const docTypeSelect = document.getElementById("doc_type_select");
+  if (docTypeSelect) {
+    docTypeSelect.addEventListener("change", toggleReturnDate);
+  }
+
+  // ✅ showTab() เวอร์ชันตรงจากโค้ดต้นฉบับ
+  window.showTab = function (tabId) {
+    const tabs = document.querySelectorAll(".tab-content");
+    const buttons = document.querySelectorAll(".tab-button");
+
+    tabs.forEach(tab => tab.style.display = "none");
+    buttons.forEach(btn => btn.classList.remove("active"));
+
+    document.getElementById(`tab-${tabId}`).style.display = "block";
+    event.currentTarget.classList.add("active");
+  };
+
+  // ✅ showSubTab() เวอร์ชันตรงจากโค้ดต้นฉบับ
+  window.showSubTab = function (tabId, btn) {
+    const subTabs = document.querySelectorAll(".sub-tab-content");
+    const subButtons = document.querySelectorAll(".sub-tab-button");
+
+    subTabs.forEach(tab => tab.style.display = "none");
+    subButtons.forEach(b => b.classList.remove("active"));
+
+    document.getElementById(`subtab-${tabId}`).style.display = "block";
+    btn.classList.add("active");
+  };
+
+  // ✅ split-table resizer (approve.html)
+  const resizer = document.querySelector('.split-resizer');
+  const left = document.querySelector('.split-table-left');
+
+  let x = 0;
+  let leftWidth = 0;
+
+  const mouseDownHandler = (e) => {
+    x = e.clientX;
+    leftWidth = left?.getBoundingClientRect().width || 0;
+    document.addEventListener('mousemove', mouseMoveHandler);
+    document.addEventListener('mouseup', mouseUpHandler);
+  };
+
+  const mouseMoveHandler = (e) => {
+    const dx = e.clientX - x;
+    if (left) {
+      left.style.width = `${leftWidth + dx}px`;
+    }
+  };
+
+  const mouseUpHandler = () => {
+    document.removeEventListener('mousemove', mouseMoveHandler);
+    document.removeEventListener('mouseup', mouseUpHandler);
+  };
+
+  if (resizer && left) {
+    resizer.addEventListener('mousedown', mouseDownHandler);
+  }
+
+  // ✅ ปรับความสูงซ้าย/ขวาให้เท่ากัน (approve.html)
+  const leftPane = document.querySelector(".split-table-left");
+  const rightPane = document.querySelector(".split-table-right");
+  if (leftPane && rightPane) {
+    const maxHeight = Math.max(leftPane.scrollHeight, rightPane.scrollHeight);
+    leftPane.style.height = rightPane.style.height = maxHeight + "px";
+  }
 });
+

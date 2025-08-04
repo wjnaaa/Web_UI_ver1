@@ -24,7 +24,7 @@
   </div>
 
   <!-- ✅ SubTab 1: รายละเอียดเอกสาร -->
-  <div class="sub-tab-content" id="subtab-doc-detail">
+<div>
     <form class="form-wrapper">
       <div class="form-row">
         <label>เลขที่</label>
@@ -140,43 +140,4 @@
 <div class="tab-content" id="tab-image" style="display: none;">
   <p>🖼 แนบไฟล์รูปภาพได้ที่นี่</p>
 </div>
-{% endblock %}
-
-{% block scripts %}
-<script>
-function showTab(tabId) {
-  const tabs = document.querySelectorAll(".tab-content");
-  const buttons = document.querySelectorAll(".tab-button");
-
-  tabs.forEach(tab => tab.style.display = "none");
-  buttons.forEach(btn => btn.classList.remove("active"));
-
-  document.getElementById(`tab-${tabId}`).style.display = "block";
-  event.currentTarget.classList.add("active");
-}
-
-function showSubTab(tabId, btn) {
-  const subTabs = document.querySelectorAll(".sub-tab-content");
-  const subButtons = document.querySelectorAll(".sub-tab-button");
-
-  subTabs.forEach(tab => tab.style.display = "none");
-  subButtons.forEach(b => b.classList.remove("active"));
-
-  document.getElementById(`subtab-${tabId}`).style.display = "block";
-  btn.classList.add("active");
-}
-
-function toggleReturnDate() {
-  const docType = document.getElementById("doc_type_select").value;
-  const returnDateRow = document.getElementById("return_date_row");
-
-  if (docType === "advance" || docType === "clear_advance") {
-    returnDateRow.style.display = "flex";
-  } else {
-    returnDateRow.style.display = "none";
-  }
-}
-
-window.addEventListener("DOMContentLoaded", toggleReturnDate);
-</script>
 {% endblock %}

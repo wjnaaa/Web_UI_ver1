@@ -1,171 +1,140 @@
 .content {
-  margin-left: 80px;  /* ✅ ขยับ content หลบ sidebar 60px */
-  padding: 2rem;
+margin-left: 80px;  /* ✅ ขยับเนื้อหาหลบ sidebar ซ้าย 80px */
+padding: 2rem;      /* เว้นช่องภายใน content ทั้ง 4 ด้าน 2rem (32px) */
 }
 
 .form-wrapper {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  max-width: 1100px;
-  margin: 1rem auto;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+background: white;                /* พื้นหลังสีขาว */
+padding: 2rem;                    /* เว้นขอบใน 2rem (32px) */
+border-radius: 12px;              /* มุมกล่องโค้ง 12px */
+max-width: 1100px;                /* กำหนดความกว้างสูงสุดไม่เกิน 1100px */
+margin: 1rem auto;                /* margin บน-ล่าง 1rem, ซ้าย-ขวา auto = จัดกลาง */
+box-shadow: 0 2px 8px rgba(0,0,0,0.05);  /* เงาจางๆ ด้านล่าง */
 }
 
 .form-title {
-  color: #003366;
-  margin-bottom: 1.5rem;
-  font-size: 1.25rem;
-  font-weight: bold;
+color: #003366;           /* สีตัวอักษรน้ำเงินกรมท่า */
+margin-bottom: 1.5rem;    /* ระยะห่างด้านล่าง 1.5rem */
+font-size: 1.25rem;       /* ขนาดตัวอักษรใหญ่ขึ้น */
+font-weight: bold;        /* ตัวหนา */
+
 }
 
 .form-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  margin-bottom: 1rem;
-  align-items: center;
+display: flex;            /* ใช้ flexbox จัดวางแนวนอน */
+flex-wrap: wrap;          /* ถ้าพื้นที่ไม่พอ ให้ขึ้นบรรทัดใหม่ */
+gap: 1.5rem;              /* ช่องว่างระหว่าง input หรือ label 1.5rem */
+margin-bottom: 1rem;      /* ระยะห่างแถวล่าง 1rem */
+align-items: center;      /* จัดให้อยู่กึ่งกลางตามแนวแกน Y */
+
 }
 
 .form-row label {
-  min-width: 150px;
-  font-weight: bold;
+min-width: 150px;         /* ความกว้างขั้นต่ำของ label 150px */
+font-weight: bold;        /* ตัวอักษรหนา */
 }
 
 .form-row input,
 .form-row select,
 .form-row textarea {
-  flex: 1;
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
+flex: 1;                  /* ยืดเต็มพื้นที่ที่เหลือ */
+padding: 8px 12px;        /* เว้นขอบในแนวตั้ง 8px แนวนอน 12px */
+border: 1px solid #ccc;   /* เส้นขอบสีเทา */
+border-radius: 6px;       /* มุมโค้งเล็กน้อย */
+font-size: 14px;          /* ขนาดตัวอักษรปานกลาง */
 }
 
 .form-row textarea {
-  resize: vertical;
-  min-height: 60px;
+resize: vertical;         /* ยอมให้ปรับขนาดเฉพาะแนวตั้ง */
+min-height: 60px;         /* ความสูงขั้นต่ำ 60px */
 }
 
 .search-box {
-  display: flex;
-  gap: 4px;
-  align-items: center;
+display: flex;            /* ใช้ flexbox */
+gap: 4px;                 /* ระยะห่างระหว่าง input กับปุ่ม */
+align-items: center;      /* จัดแนวให้อยู่กึ่งกลางแนว Y */
 }
 
 .search-box input {
-  flex: 1;
+flex: 1;                  /* ขยาย input ให้เต็มที่ */
 }
 
 .search-box button {
-  background-color: #d9534f;
-  color: white;
-  border: none;
-  padding: 6px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
+background-color: #d9534f;  /* พื้นหลังสีแดง (danger) */
+color: white;               /* ตัวหนังสือสีขาว */
+border: none;               /* ไม่มีเส้นขอบ */
+padding: 6px 10px;          /* padding บนล่าง 6px ซ้ายขวา 10px */
+border-radius: 4px;         /* มุมโค้ง */
+cursor: pointer;            /* เมื่อนำเมาส์ไปชี้เป็นรูปมือ */
+font-size: 14px;            /* ขนาดตัวอักษร */
 }
 
 .toggle-row {
-  display: flex;
-  gap: 2rem;
-  margin-top: 1.5rem;
-  align-items: center;
-  flex-wrap: wrap;
+display: flex;             /* ใช้ flexbox */
+gap: 2rem;                 /* ช่องว่างระหว่าง toggle 2rem */
+margin-top: 1.5rem;        /* ระยะห่างด้านบน 1.5rem */
+align-items: center;       /* จัดกึ่งกลางแนว Y */
+flex-wrap: wrap;           /* ถ้าไม่พอให้ขึ้นบรรทัดใหม่ */
 }
 
 .toggle-row label {
-  font-weight: normal;
-  font-size: 14px;
+font-weight: normal;       /* ตัวอักษรไม่หนา */
+font-size: 14px;           /* ขนาดตัวอักษร */
 }
 
 .form-actions {
-  margin-top: 2rem;
-  text-align: right;
-  display: flex;
-  justify-content: flex-end;
-  gap: 1rem;
+margin-top: 2rem;          /* ระยะห่างด้านบน */
+text-align: right;         /* ชิดขวา */
+display: flex;             /* ใช้ flexbox */
+justify-content: flex-end; /* จัดให้อยู่ชิดขวา */
+gap: 1rem;                 /* ช่องว่างระหว่างปุ่ม */
 }
 
 .btn-primary {
-  background-color: #003366;
-  color: white;
-  padding: 8px 20px;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
+background-color: #003366;  /* สีกรม */
+color: white;               /* ตัวอักษรสีขาว */
+padding: 8px 20px;          /* padding */
+border-radius: 6px;         /* มุมโค้ง */
+border: none;               /* ไม่มีเส้นขอบ */
+cursor: pointer;            /* เมาส์รูปมือ */
+font-weight: bold;          /* ตัวอักษรหนา */
 }
 
 .btn-secondary {
-  background-color: #ccc;
-  color: #333;
-  padding: 8px 20px;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
+background-color: #ccc;     /* สีเทา */
+color: #333;                /* สีอักษรเข้ม */
+padding: 8px 20px;
+border-radius: 6px;
+border: none;
+cursor: pointer;
+font-weight: bold;
 }
 
 .tab-header {
-  display: flex;
-  gap: 10px;
-  border-bottom: 2px solid #ccc;
-  margin-bottom: 1.5rem;
-  padding-bottom: 4px;
+display: flex;             /* ใช้ flexbox */
+gap: 10px;                 /* ช่องว่างระหว่างปุ่ม tab */
+border-bottom: 2px solid #ccc;  /* เส้นใต้กล่อง tab */
+margin-bottom: 1.5rem;     /* ระยะห่างล่างของ header */
+padding-bottom: 4px;       /* padding ล่างเล็กน้อย */
 }
 
 .tab-button {
-  background: none;
-  border: none;
-  font-weight: bold;
-  padding: 10px 16px;
-  cursor: pointer;
-  border-bottom: 2px solid transparent;
-  font-size: 15px;
+background: none;              /* ไม่มีพื้นหลัง */
+border: none;                  /* ไม่มีเส้นขอบ */
+font-weight: bold;            /* ตัวอักษรหนา */
+padding: 10px 16px;           /* padding */
+cursor: pointer;              /* เมาส์รูปมือ */
+border-bottom: 2px solid transparent;  /* เส้นใต้โปร่งใส (จะเปลี่ยนตอน active) */
+font-size: 15px;
 }
 
 .tab-button.active {
-  color: #003366;
-  border-bottom: 2px solid #003366;
+color: #003366;               /* สีกรม */
+border-bottom: 2px solid #003366; /* เส้นใต้สีกรม */
 }
 
 .tab-content {
-  margin-top: 20px;
-}
-
-/* of_purchase_requisition */
-
-.form-wrapper {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  margin: 1rem auto;
-  max-width: 1100px;
-}
-
-.form-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  margin-bottom: 1rem;
-  align-items: center;
-}
-
-.form-row label {
-  min-width: 150px;
-  font-weight: bold;
-}
-
-.form-row input,
-.form-row select {
-  flex: 1;
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
+  margin-top: 20px;           /* ระยะห่างจากหัว tab */
 }
 
 .search-box {
@@ -184,8 +153,8 @@
 }
 
 .toggle-switch-group {
-  display: flex;
-  gap: 1rem;
+  display: flex;             /* ใช้ flexbox */
+  gap: 1rem;                 /* ช่องว่าง */
   margin-top: 1rem;
   align-items: center;
 }
@@ -193,17 +162,17 @@
 /* Sub-Tab Header ที่ดูเรียบร้อยแบบระบบเดิม */
 .sub-tab-header {
   display: flex;
-  gap: 2px;
+  gap: 2px;                    /* ช่องว่างระหว่างปุ่ม tab */
   margin-bottom: 1rem;
   margin-top: 1rem;
-  border-bottom: 2px solid #ddd;
+  border-bottom: 2px solid #ddd;  /* เส้นขอบล่างสีเทาอ่อน */
   padding-bottom: 0.25rem;
 }
 
 .sub-tab-button {
-  background-color: #f7f7f7;
-  border: 1px solid #ccc;
-  border-bottom: none;
+  background-color: #f7f7f7;    /* พื้นหลังเทาอ่อน */
+  border: 1px solid #ccc;       /* ขอบสีเทา */
+  border-bottom: none;          /* ไม่มีขอบด้านล่าง */
   padding: 8px 16px;
   font-weight: bold;
   font-size: 14px;
@@ -216,15 +185,15 @@
 .sub-tab-button.active {
   background-color: white;
   border-color: #ccc;
-  border-bottom: 2px solid white;
-  color: #003366;
+  border-bottom: 2px solid white;  /* ให้ดูแนบกับเนื้อหาข้างล่าง */
+  color: #003366;                  /* สีกรม */
 }
 
 .sub-tab-content {
   background-color: white;
   border: 1px solid #ccc;
-  border-top: none;
-  border-radius: 0 0 6px 6px;
+  border-top: none;               /* ไม่มีขอบบน เพื่อแนบกับปุ่ม */
+  border-radius: 0 0 6px 6px;     /* โค้งเฉพาะมุมล่าง */
   padding: 1rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
