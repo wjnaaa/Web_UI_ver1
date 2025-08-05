@@ -108,8 +108,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const mouseMoveHandler = (e) => {
     const dx = e.clientX - x;
-    if (left) {
-      left.style.width = `${leftWidth + dx}px`;
+    const newWidth = leftWidth + dx;
+    if (newWidth > 300 && newWidth < 800) { // ป้องกันเล็กหรือใหญ่เกิน
+      left.style.width = `${newWidth}px`;
     }
   };
 

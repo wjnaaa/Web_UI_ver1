@@ -161,9 +161,14 @@
 
 .split-table-scrolls {
   display: flex;
+  flex: 1;
   width: 100%;
   align-items: stretch;
   overflow: hidden;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 .split-table-left,
@@ -178,6 +183,7 @@
 }
 
 .split-table-left {
+  width: 500px; /* ความกว้างคงที่สำหรับตารางซ้าย */
   min-width: 480px;
   max-width: 600px;
   flex-shrink: 0;
@@ -185,6 +191,10 @@
 
 .split-table-right {
   flex-grow: 1;
+  width: 500px; /* ความกว้างคงที่สำหรับตารางซ้าย */
+  min-width: 480px;
+  max-width: 600px;
+  flex-shrink: 0;
 }
 
 .split-resizer {
