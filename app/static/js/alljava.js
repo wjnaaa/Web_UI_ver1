@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const returnDateRow = document.getElementById("return_date_row");
 
     if (returnDateRow) {
-      if (docType === "advance" || docType === "clear_advance") {
+      if (docType === "advance") {
         returnDateRow.style.display = "flex";
       } else {
         returnDateRow.style.display = "none";
@@ -84,11 +84,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const subTabs = document.querySelectorAll(".sub-tab-content");
     const subButtons = document.querySelectorAll(".sub-tab-button");
 
-    subTabs.forEach(tab => tab.style.display = "none");
-    subButtons.forEach(b => b.classList.remove("active"));
+    subTabs.forEach(tab => tab.style.display = "none");            // ซ่อนทุก sub-tab
+  subButtons.forEach(b => b.classList.remove("active"));         // ลบ class active
 
-    document.getElementById(`subtab-${tabId}`).style.display = "block";
-    btn.classList.add("active");
+  document.getElementById(`subtab-${tabId}`).style.display = "block";
+  // แสดง sub-tab ที่เลือก
+  btn.classList.add("active");                                   // ใส่ class active ให้ปุ่ม
   };
 
   // ✅ split-table resizer (approve.html)
@@ -129,4 +130,3 @@ document.addEventListener("DOMContentLoaded", () => {
     leftPane.style.height = rightPane.style.height = maxHeight + "px";
   }
 });
-

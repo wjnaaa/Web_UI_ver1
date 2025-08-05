@@ -6,11 +6,11 @@
 
 <!-- ✅ Tab Menu หลัก -->
 <div class="tab-header">
-  <button class="tab-button active" onclick="showTab('doc')">📁 ข้อมูลเอกสาร</button>
-  <button class="tab-button" onclick="showTab('cost')">🧾 Cost Center</button>
-  <button class="tab-button" onclick="showTab('approve')">👤 ข้อมูลการอนุมัติ</button>
-  <button class="tab-button" onclick="showTab('file')">📎 แนบไฟล์เอกสาร</button>
-  <button class="tab-button" onclick="showTab('image')">🖼 แนบไฟล์รูปภาพ</button>
+  <button class="tab-button active" onclick="showTab('doc', this)">📁 ข้อมูลเอกสาร</button>
+  <button class="tab-button" onclick="showTab('cost', this)">🧾 Cost Center</button>
+  <button class="tab-button" onclick="showTab('approve', this)">👤 ข้อมูลการอนุมัติ</button>
+  <button class="tab-button" onclick="showTab('file', this)">📎 แนบไฟล์เอกสาร</button>
+  <button class="tab-button" onclick="showTab('image', this)">🖼 แนบไฟล์รูปภาพ</button>
 </div>
 
 <!-- ✅ Tab: ข้อมูลเอกสาร -->
@@ -24,22 +24,27 @@
   </div>
 
   <!-- ✅ SubTab 1: รายละเอียดเอกสาร -->
-<div>
-    <form class="form-wrapper">
+  <div class="sub-tab-content" id="subtab-doc-detail" style="display: block;">
       <div class="form-row">
-        <label>เลขที่</label>
-        <input type="text" name="doc_no" />
+          <div class="form-group">
+            <label>เลขที่</label>
+            <input type="text" name="doc_no" />
+          </div>
 
-        <label>วันที่เอกสาร</label>
-        <input type="date" name="doc_date" value="2025-07-29" />
+          <div class="form-group">
+            <label>วันที่เอกสาร</label>
+            <input type="date" name="doc_date" value="2025-07-29" />
+          </div>
 
-        <label>ประเภทเอกสาร</label>
-        <select name="doc_type" id="doc_type_select" onchange="toggleReturnDate()">
-          <option value="petty_cash">Petty Cash</option>
-          <option value="advance">Advance</option>
-          <option value="clear_advance">Clear Advance</option>
-          <option value="other">Other</option>
-        </select>
+          <div class="form-group">
+            <label>ประเภทเอกสาร</label>
+            <select name="doc_type" id="doc_type_select" onchange="toggleReturnDate()">
+              <option value="petty_cash">Petty Cash</option>
+              <option value="advance">Advance</option>
+              <option value="clear_advance">Clear Advance</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
       </div>
 
       <div class="form-row" id="return_date_row" style="display: none;">
@@ -108,16 +113,12 @@
 
   <!-- ✅ SubTab 2: รายการใบเบิกเงินสดย่อย -->
   <div class="sub-tab-content" id="subtab-doc-expense" style="display: none;">
-    <div class="form-wrapper">
       <p>💸 รายการใบเบิกเงินสดย่อยจะอยู่ตรงนี้ เช่น ตารางที่มี Amount, VAT ฯลฯ</p>
-    </div>
   </div>
 
   <!-- ✅ SubTab 3: ใบแทนใบเสร็จรับเงิน -->
   <div class="sub-tab-content" id="subtab-doc-receipt" style="display: none;">
-    <div class="form-wrapper">
       <p>🧾 ใบแทนใบเสร็จรับเงินอยู่ตรงนี้ เช่น Vendor, Description, Amount ฯลฯ</p>
-    </div>
   </div>
 </div>
 
@@ -140,4 +141,7 @@
 <div class="tab-content" id="tab-image" style="display: none;">
   <p>🖼 แนบไฟล์รูปภาพได้ที่นี่</p>
 </div>
+
+  <!-- ✅ JS -->
+  <script src="{{ url_for('static', filename='js/alljava.js') }}"></script>
 {% endblock %}
