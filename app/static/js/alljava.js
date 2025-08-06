@@ -84,12 +84,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const subTabs = document.querySelectorAll(".sub-tab-content");
     const subButtons = document.querySelectorAll(".sub-tab-button");
 
-    subTabs.forEach(tab => tab.style.display = "none");            // ซ่อนทุก sub-tab
-  subButtons.forEach(b => b.classList.remove("active"));         // ลบ class active
+    subTabs.forEach(tab => tab.style.display = "none");
+    subButtons.forEach(b => b.classList.remove("active"));
 
-  document.getElementById(`subtab-${tabId}`).style.display = "block";
-  // แสดง sub-tab ที่เลือก
-  btn.classList.add("active");                                   // ใส่ class active ให้ปุ่ม
+    document.getElementById(`subtab-${tabId}`).style.display = "block";
+    btn.classList.add("active");
   };
 
   // ✅ split-table resizer (approve.html)
@@ -108,9 +107,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const mouseMoveHandler = (e) => {
     const dx = e.clientX - x;
-    const newWidth = leftWidth + dx;
-    if (newWidth > 300 && newWidth < 800) { // ป้องกันเล็กหรือใหญ่เกิน
-      left.style.width = `${newWidth}px`;
+    if (left) {
+      left.style.width = `${leftWidth + dx}px`;
     }
   };
 
@@ -129,5 +127,22 @@ document.addEventListener("DOMContentLoaded", () => {
   if (leftPane && rightPane) {
     const maxHeight = Math.max(leftPane.scrollHeight, rightPane.scrollHeight);
     leftPane.style.height = rightPane.style.height = maxHeight + "px";
+  }
+
+  // ✅ ตรวจว่ามี split-table หรือไม่ → โหลด approve.css
+  const hasSplitTable = document.querySelector(".split-table-wrapper");
+
+  if (hasSplitTable) {
+    const approveCssLoaded = Array.from(document.styleSheets).some(sheet =>
+      sheet.href && sheet.href.includes("approve.css")
+    );
+
+    if (!approveCssLoaded) {
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = "\static\approve.css"; // ✅ ปรับ path ตามจริงถ้าอยู่ใน static/css/
+      link.type = "text/css";
+      document.head.appendChild(link);
+    }
   }
 });
