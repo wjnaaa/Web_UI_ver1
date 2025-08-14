@@ -157,6 +157,7 @@
   height: auto;
   overflow: hidden;
   border-top: 1px solid #ccc;
+  padding: 8px;
 }
 
 .split-table-scrolls {
@@ -164,7 +165,7 @@
   flex: 1;
   width: 100%;
   align-items: stretch;
-  overflow: hidden;
+  overflow: auto;
 }
 
 *, *::before, *::after {
@@ -173,7 +174,7 @@
 
 .split-table-left,
 .split-table-right {
-  overflow-x: auto;
+  overflow-x:scroll;
   overflow-y: hidden;
   white-space: nowrap;
   background-color: white;
@@ -183,25 +184,26 @@
 }
 
 .split-table-left {
-  width: 500px; /* ความกว้างคงที่สำหรับตารางซ้าย */
+  position: relative;
+  width: 500px;
   min-width: 480px;
   max-width: 600px;
-  flex-shrink: 0;
 }
 
 .split-table-right {
   flex-grow: 1;
-  width: 500px; /* ความกว้างคงที่สำหรับตารางซ้าย */
+  position: relative;
   min-width: 480px;
   max-width: 600px;
   flex-shrink: 0;
+  height: 100%;
 }
 
 .split-resizer {
-  width: 6px;
+  width: 4px;
   background-color: #ccc;
   cursor: col-resize;
-  height: 100%;
+  height: auto;
 }
 
 /* ตาราง */
@@ -211,7 +213,7 @@
   min-width: max-content;
   table-layout: auto;
   width: auto;
-  height: 100%;
+  height: auto;
 }
 
 .split-table-left th,

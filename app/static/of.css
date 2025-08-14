@@ -195,3 +195,36 @@ border-bottom: 2px solid #003366; /* เส้นใต้สีกรม */
   max-width: 1100px;                /* กำหนดความกว้างสูงสุดไม่เกิน 1100px */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
+/* ใช้เฉพาะใน tab-doc ของ petty cash */
+#tab-doc .split-table-wrapper {
+  display: flex !important;
+  flex-direction: row !important;   /* ← บังคับแนวนอน */
+  height: auto !important;          /* ✅ ปล่อยสูงตามข้อมูล */
+  overflow: visible !important;     /* ✅ ไม่ตัดส่วนเกินแนวตั้ง */
+}
+
+#tab-doc .split-table-left,
+#tab-doc .split-table-right {
+  flex: 1 1 0;
+  min-width: 0;
+  overflow-x: auto;                  /* ✅ เลื่อนตามคอลัมน์ */
+  overflow-y: visible !important;    /* ✅ สูงตามจำนวนแถว */
+}
+
+#tab-doc .split-table-left { flex-basis: 45%; } /* ความกว้างตั้งต้น */
+#tab-doc .split-table-right { flex-basis: 55%; }
+
+#tab-doc .split-resizer {
+  width: 8px;
+  cursor: col-resize;
+  user-select: none;
+  flex: 0 0 8px;
+}
+
+/* กัน table หด */
+#tab-doc .split-table-left table,
+#tab-doc .split-table-right table {
+  width: 100%;
+  table-layout: fixed;    /* หัวตารางไม่เด้ง */
+  border-collapse: separate;
+}
